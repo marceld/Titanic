@@ -32,3 +32,14 @@ for dataset in train_test_data:
     dataset.loc[(dataset['Age'] > 36) & (dataset['Age'] <= 62), 'Age'] = 3,    
     dataset.loc[ dataset['Age'] > 62, 'Age'] = 4,
 ```
+```python
+# filling in missing values
+Pclass1 = train[train['Pclass']==1]['Embarked'].value_counts()
+Pclass2 = train[train['Pclass']==2]['Embarked'].value_counts()
+Pclass3 = train[train['Pclass']==3]['Embarked'].value_counts()
+df = pd.DataFrame([Pclass1, Pclass2, Pclass3])
+df.index = ['1st class', '2nd class', '3rd class']
+df.plot(kind='bar', stacked=True, figsize=(10,5))
+
+plt.show()
+```
