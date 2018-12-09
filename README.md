@@ -17,6 +17,8 @@
 
 ### Feature engineering
 
-fill missing age with median age for each title
+```
+# fill missing age with median age for each title
 train['Age'].fillna(train.groupby('Title')['Age'].transform('median'), inplace=True)
 test['Age'].fillna(test.groupby('Title')['Age'].transform('median'), inplace=True)
+```
