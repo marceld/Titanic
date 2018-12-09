@@ -17,13 +17,13 @@
 
 ### Feature engineering
 
-```
+```ruby
 # fill missing age with median age for each title
 train['Age'].fillna(train.groupby('Title')['Age'].transform('median'), inplace=True)
 test['Age'].fillna(test.groupby('Title')['Age'].transform('median'), inplace=True)
 ```
 
-```
+```ruby
 # binning
 for dataset in train_test_data:
     dataset.loc[ dataset['Age'] <= 16, 'Age'] = 0,
